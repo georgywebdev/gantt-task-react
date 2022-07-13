@@ -6,6 +6,7 @@ export enum ViewMode {
   /** ISO-8601 week */
   Week = "Week",
   Month = "Month",
+  Year = "Year",
 }
 export type TaskType = "task" | "milestone" | "project";
 export interface Task {
@@ -46,6 +47,10 @@ export interface EventOption {
    */
   onDoubleClick?: (task: Task) => void;
   /**
+   * Invokes on bar click.
+   */
+  onClick?: (task: Task) => void;
+  /**
    * Invokes on end and start time change. Chart undoes operation if method return false or error.
    */
   onDateChange?: (
@@ -72,6 +77,7 @@ export interface EventOption {
 export interface DisplayOption {
   viewMode?: ViewMode;
   viewDate?: Date;
+  preStepsCount?: number;
   /**
    * Specifies the month name language. Able formats: ISO 639-2, Java Locale
    */
